@@ -9,7 +9,8 @@ import Item from '../components/Item'
 const ViewList = props => (
   <div>
     <Container>
-      <Item></Item>
+      <Item/>
+      <Item/>
       <Button className="mr-2" variant="primary">Add Item</Button>
       <Button className="mr-2" variant="secondary">Post Analysis</Button>
       <Button className="mr-2" variant="secondary">Create PDF</Button>

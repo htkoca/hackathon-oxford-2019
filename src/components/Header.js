@@ -9,13 +9,20 @@ import { Navbar, Nav } from 'react-bootstrap'
 const Header = () => {
   return (
     <header>
-      <Navbar bg="light">
-        <Navbar.Brand href="#home">Oxford</Navbar.Brand>
-        <Nav className="mr-auto">
-          <Nav.Link href="/">Create Project</Nav.Link>
-          <Nav.Link href="/CreateList">Create List</Nav.Link>
-          <Nav.Link href="/ViewList">View List</Nav.Link>
-          <Nav.Link href="/SearchProducts">Search Products</Nav.Link>
+      <Navbar bg="dark">
+        <Navbar.Brand href="#home">
+          <img
+            src="/logo.png"
+            width="150"
+            alt="Oxford Logo"
+          />
+        </Navbar.Brand>
+        <Nav className="ml-auto">
+          <Nav.Link className="text-white" href="/">Create Project</Nav.Link>
+          <Nav.Link className="text-white" href="/CreateList">Create List</Nav.Link>
+          <Nav.Link className="text-white" href="/ViewList">View List</Nav.Link>
+          <Nav.Link className="text-white" href="/SearchProducts">Search Products</Nav.Link>
+          <Nav.Link className="text-white" href="/ViewProduct">View Product</Nav.Link>
         </Nav>
       </Navbar>
     </header>

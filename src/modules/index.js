@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
-import counter from './counter'
+import project from './project'
 
 export default combineReducers({
-  counter
+  project
 })

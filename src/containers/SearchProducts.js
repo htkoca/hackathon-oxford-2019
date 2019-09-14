@@ -19,11 +19,11 @@ const SearchProducts = props => (
           </Col>
         </Row>
       </Form>
-      <Item/>
-      <Item/>
-      <Item/>
-      <Item/>
-      <Item/>
+      <Item showButtons={true}/>
+      <Item showButtons={true}/>
+      <Item showButtons={true}/>
+      <Item showButtons={true}/>
+      <Item showButtons={true}/>
     </Container>
   </div>
 )
