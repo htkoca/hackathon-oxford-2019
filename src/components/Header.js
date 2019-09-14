@@ -13,6 +13,9 @@ const Header = () => {
         <Navbar.Brand href="#home">Oxford</Navbar.Brand>
         <Nav className="mr-auto">
           <Nav.Link href="/">Create Project</Nav.Link>
+          <Nav.Link href="/CreateList">Create List</Nav.Link>
+          <Nav.Link href="/ViewList">View List</Nav.Link>
+          <Nav.Link href="/SearchProducts">Search Products</Nav.Link>
         </Nav>
       </Navbar>
     </header>
