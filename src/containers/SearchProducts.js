@@ -24,12 +24,18 @@ class SearchProducts extends React.Component {
       let self = this;
 
       this.state.materials.forEach(function(el) {
-        if(el.model_name.toLowerCase().includes(event.target.value.toLowerCase())) {
-          self.state.manufacturers.forEach(function(manufacturer) {
-            if(manufacturer.id.includes(el.manufacturer_source)) {
-              el.manufacturer = manufacturer;
-            }
-          });
+ 
+        self.state.manufacturers.forEach(function(manufacturer) {
+          if(manufacturer.id === el.manufacturer_source) {
+            el.manufacturer = manufacturer.manufacturer;
+          }
+        });
+
+        if(!el.manufacturer) {
+          el.manufacturer = '';
+        }
+ 
+        if(el.model_name.toLowerCase().includes(event.target.value.toLowerCase()) || el.colour_finish.toLowerCase().includes(event.target.value.toLowerCase()) || el.manufacturer.toLowerCase().includes(event.target.value.toLowerCase())) {
           products.push(el);
         }
       });

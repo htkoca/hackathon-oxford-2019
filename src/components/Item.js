@@ -17,7 +17,7 @@ const Item = (props) => {
             <Card.Title className="my-2">{ props.name } <span className="circle"/>
             </Card.Title>
 
-            <p>{ props.product.manufacturer.manufacturer }</p>
+            <p>{ props.product.manufacturer }</p>
 
           </Col>
           { props.showButtons &&
