@@ -14,7 +14,7 @@ const Item = (props) => {
 
             <div className="img-fluid float-left mr-4" style={{ backgroundSize: "cover", backgroundImage: "url('https://oxfordhackapi2019.herokuapp.com/"+props.image+"')", width: "100px", height: "100px"}}/>
 
-            <Card.Title className="my-2">{ props.name } <span className={ (props.product.availability == 0 ? 'red-circle' : 'circle')}/>
+            <Card.Title className="my-2">{ props.name } <span className={ (props.product.availability === 0 ? 'red-circle' : 'circle')}/>
             </Card.Title>
 
             <p>{ props.product.manufacturer }</p>

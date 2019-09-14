@@ -35,7 +35,9 @@ class SearchProducts extends React.Component {
           el.manufacturer = '';
         }
  
-        if(el.model_name.toLowerCase().includes(event.target.value.toLowerCase()) || el.colour_finish.toLowerCase().includes(event.target.value.toLowerCase()) || el.manufacturer.toLowerCase().includes(event.target.value.toLowerCase())) {
+        el.keywords = el.keywords.toLowerCase();
+
+        if(el.model_name.toLowerCase().includes(event.target.value.toLowerCase()) || el.colour_finish.toLowerCase().includes(event.target.value.toLowerCase()) || el.manufacturer.toLowerCase().includes(event.target.value.toLowerCase()) || el.keywords.split(",").includes(event.target.value.toLowerCase())) {
           products.push(el);
         }
       });
