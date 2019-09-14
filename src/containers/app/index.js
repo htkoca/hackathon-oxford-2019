@@ -1,17 +1,24 @@
+// dependencies
 import React from 'react'
 import { Route } from 'react-router-dom'
-import Header from '../../components/header'
-import Home from '../home'
-import About from '../about'
 
+// components
+import Header from '../../components/Header'
+import Footer from '../../components/Footer'
+
+// routes
+import CreateProject from '../CreateProject'
+
+// react
 const App = () => (
   <div>
-    <Header/>
 
-    <main>
-      <Route exact path="/" component={Home} />
-      <Route exact path="/about-us" component={About} />
+    <Header/>
+    <main className="my-4">
+      <Route exact path="/" component={CreateProject} />
     </main>
+    {/* <Footer/> */}
+
   </div>
 )
 
