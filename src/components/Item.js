@@ -11,8 +11,14 @@ const Item = (props) => {
       <Card.Body>
         <Row>
           <Col xs={9}>
-            <img className="img-fluid float-left mr-4" src="https://via.placeholder.com/80" alt="product thumbnail"/>
-            <Card.Title className="my-2">Product Title</Card.Title>
+
+            <div className="img-fluid float-left mr-4" style={{ backgroundSize: "cover", backgroundImage: "url('https://oxfordhackapi2019.herokuapp.com/"+props.image+"')", width: "100px", height: "100px"}}/>
+
+            <Card.Title className="my-2">{ props.name } <span className="circle"/>
+            </Card.Title>
+
+            <p>{ props.product.manufacturer.manufacturer }</p>
+
           </Col>
           { props.showButtons &&
             <Col xs={3}>

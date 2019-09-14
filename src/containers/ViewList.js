@@ -8,18 +8,27 @@ import Item from '../components/Item'
 import { Link } from 'react-router-dom'
 
 // react
-const ViewList = props => (
-  <div>
-    <Container>
-      <h2>{ props.project.projectName } > { props.project.listName }</h2>
-      <Item/>
-      <Item/>
-      <Link role="button" className="btn btn-primary mr-2" to="/SearchProducts">Add Item</Link>
-      <Button className="mr-2" variant="secondary">Post Analysis</Button>
-      <Button className="mr-2" variant="secondary">Create PDF</Button>
-    </Container>
-  </div>
-)
+class ViewList extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+
+  render () {
+    return (
+      <div>
+      <Container>
+        <h2>{ this.props.project.projectName } > { this.props.project.listName }</h2>
+        <Item/>
+        <Item/>
+        <Link role="button" className="btn btn-primary mr-2" to="/SearchProducts">Add Item</Link>
+        <Button className="mr-2" variant="secondary">Post Analysis</Button>
+        <Button className="mr-2" variant="secondary">Create PDF</Button>
+      </Container>
+    </div>
+    )
+  }
+
+}
 
 // export default ViewList;
 
