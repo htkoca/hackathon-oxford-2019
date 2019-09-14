@@ -22,3 +22,11 @@ a.text-white:hover {
   border-radius: 50%;
   display: inline-block;
 }
+
+.red-circle {
+  height: 10px;
+  width: 10px;
+  background-color: #B80F04;
+  border-radius: 50%;
+  display: inline-block;
+}
