@@ -36,8 +36,9 @@ class SearchProducts extends React.Component {
         }
  
         el.keywords = el.keywords.toLowerCase();
+        el.Category = el.Category.toLowerCase();
 
-        if(el.model_name.toLowerCase().includes(event.target.value.toLowerCase()) || el.colour_finish.toLowerCase().includes(event.target.value.toLowerCase()) || el.manufacturer.toLowerCase().includes(event.target.value.toLowerCase()) || el.keywords.split(",").includes(event.target.value.toLowerCase())) {
+        if(el.model_name.toLowerCase().includes(event.target.value.toLowerCase()) || el.colour_finish.toLowerCase().includes(event.target.value.toLowerCase()) || el.manufacturer.toLowerCase().includes(event.target.value.toLowerCase()) || el.keywords.split(",").includes(event.target.value.toLowerCase()) || el.Category.split(",").includes(event.target.value.toLowerCase())) {
           products.push(el);
         }
       });
@@ -52,7 +53,21 @@ class SearchProducts extends React.Component {
   componentDidMount() {
     fetch('https://oxfordhackapi2019.herokuapp.com/materials')
       .then(response => response.json())
-      .then(data => this.setState({ materials: data }));
+      .then((data) => {
+    
+        let categories = [];
+
+        data.forEach(function(material) {
+          material.Category.split(",").forEach(function(category) { 
+            if(!categories.includes(category)) {
+              categories.push(category);
+            }
+          });
+        });
+
+        this.setState({ materials: data, categories: categories })
+
+      });
 
       fetch('https://oxfordhackapi2019.herokuapp.com/manufacturers')
       .then(response => response.json())
