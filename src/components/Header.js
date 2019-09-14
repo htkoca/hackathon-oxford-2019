@@ -1,6 +1,6 @@
 // dependencies
 import React from 'react'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 // components
 import { Navbar, Nav } from 'react-bootstrap'
@@ -11,11 +11,13 @@ const Header = () => {
     <header>
       <Navbar bg="dark">
         <Navbar.Brand href="#home">
+        <Link to="/">
           <img
             src="/logo.png"
             width="150"
             alt="Oxford Logo"
           />
+          </Link>
         </Navbar.Brand>
         <Nav className="ml-auto">
           <Nav.Link className="text-white" href="/">Create Project</Nav.Link>

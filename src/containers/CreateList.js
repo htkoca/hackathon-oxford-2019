@@ -25,14 +25,15 @@ class CreateList extends React.Component {
       <div>
         <Container>
           <Form>
+          <p>{ this.props.project.projectName } > Create List</p>
             <Form.Group controlId="formGroupEmail">
-              <Form.Control placeholder="List Name" ref="projFormElement" />
+              <Form.Control placeholder="Project List" ref="projFormElement" />
             </Form.Group>
             <Button variant="primary" onClick={this.setListName}>Create List</Button>
           </Form>
         </Container>
         { this.state.toNextPage && 
-          <Redirect to='/CreateList' />
+          <Redirect to='/ViewList' />
         }
       </div>
     )
