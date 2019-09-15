@@ -51,7 +51,7 @@ export default class ProductPage extends React.Component {
             <hr />
             <Row>
               <Col className="border-right" xs={2}>
-                <Button variant="primary" block onClick={this.handleNav} data-key="ViewList">
+                <Button className="mb-3" variant="primary" block onClick={this.handleNav} data-key="ViewList">
                   ← Back
                 </Button>
                 <div
