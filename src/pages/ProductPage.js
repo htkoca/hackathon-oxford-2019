@@ -41,18 +41,15 @@ export default class ProductPage extends React.Component {
             </Card.Title>
             <hr />
             <Row>
-            <div
+              <Col className="border-right" xs={2}>
+              <div
                 style={{
-                  backgroundSize: "cover",
-                  backgroundImage:
-                    "url('https://oxfordhackapi2019.herokuapp.com/" +
-                    this.props.currentProduct.image_url +
-                    "')",
-                  width: "150px",
+                  backgroundSize: "contain",
+                  backgroundImage: `url('https://oxfordhackapi2019.herokuapp.com/${this.props.currentProduct.image_url}')`,
+                  width: "100%",
                   height: "150px"
                 }}
               />
-              <Col className="border-right" xs={3}>
                 <Nav defaultActiveKey="notes" className="flex-column">
                   <Nav.Link onClick={this.handleTab} data-key="tabMaterialNotes">Material Notes</Nav.Link>
                   {this.props.currentProduct.datasheet_url && (
