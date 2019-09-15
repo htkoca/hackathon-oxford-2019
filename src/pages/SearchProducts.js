@@ -16,7 +16,6 @@ export default class SearchProducts extends React.Component {
     this.handleChecked = this.handleChecked.bind(this);
   }
   handleSubmit(e) {
-    console.log(this.state.checked);
     this.props.filterSearch(`${this.refs.searchBox.value} ${this.state.checked}`);
     e.preventDefault();
   }

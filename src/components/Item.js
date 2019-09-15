@@ -22,7 +22,7 @@ class Item extends React.Component {
       <Card className="my-2">
         <Card.Body>
           <Row>
-            <Col xs={9}>
+            <Col xs={6}>
               <div
                 className="img-fluid float-left mr-4"
                 style={{
@@ -36,7 +36,7 @@ class Item extends React.Component {
                 }}
               />
               <Card.Title className="my-2">
-                {this.props.product.model_name}{" "}
+                {this.props.product.model_name}
                 <span
                   className={
                     this.props.product.availability == "0" ||
@@ -46,8 +46,11 @@ class Item extends React.Component {
                   }
                 />
               </Card.Title>
-              <p className="mb-1">{this.props.product.colour_finish}</p>
-              <p className="small">{this.props.product.manufacturer}</p>
+              <p className="small mb-1">{this.props.product.colour_finish}</p>
+              <p className="small mb-0">{this.props.product.manufacturer}</p>
+            </Col>
+            <Col xs={3}>
+              <p classname="my-4"> {`$${this.props.product.quote}`} </p>
             </Col>
             <Col xs={3}>
               <Button variant="secondary" block onClick={this.handleFeatures}>
