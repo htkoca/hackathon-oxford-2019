@@ -23,6 +23,9 @@ export default class SearchProducts extends React.Component {
     this.props.filterSearch(`${this.refs.searchBox.value} ${this.state.checked}`);
     e.preventDefault();
   }
+  componentDidMount() {
+    this.props.filterSearch('');
+  }
   handleChecked(e){
     let rslt = this.state.checked.split(" ");
     rslt.push(e.target.name)
