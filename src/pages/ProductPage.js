@@ -10,7 +10,10 @@ export default class ProductPage extends React.Component {
   constructor(props) {
     super(props);
 
+    this.handleClick = this.handleClick.bind(this);
+
     this.state = {
+      currentTab: "tab_materialNotes",
       options: {
         chart: {
           id: "line"
@@ -29,7 +32,12 @@ export default class ProductPage extends React.Component {
 
   }
 
+  handleClick(event) {
+    console.log('clicked');
+  }
+
   render() {
+
     function hasDatasheet() {
       if (this.props.currentProduct.datasheet_url != null) {
         return true;
@@ -49,7 +57,7 @@ export default class ProductPage extends React.Component {
             <Row>
               <Col className="border-right" xs={3}>
                 <Nav defaultActiveKey="notes" className="flex-column">
-                  <Nav.Link event-key="notes">Material Notes</Nav.Link>
+                  <Nav.Link onClick={this.handleClick} event-key="notes">Material Notes</Nav.Link>
                   {this.props.currentProduct.datasheet_url && (
                     <Nav.Link
                       target="_blank"
@@ -61,14 +69,14 @@ export default class ProductPage extends React.Component {
                       Datasheet
                     </Nav.Link>
                   )}
-                  <Nav.Link event-key="stock">Stock Level</Nav.Link>
-                  <Nav.Link event-key="history">Price History</Nav.Link>
-                  <Nav.Link event-key="specifications">Specifications</Nav.Link>
+                  <Nav.Link onClick={this.handleClick} event-key="stock">Stock Level</Nav.Link>
+                  <Nav.Link onClick={this.handleClick} event-key="history">Price History</Nav.Link>
+                  <Nav.Link onClick={this.handleClick} event-key="specifications">Specifications</Nav.Link>
                 </Nav>
                 <p>Price Calculator Goes Here</p>
               </Col>
               <Col xs={9}>
-                {/*  */}
+              <div ref="tab_materialNotes">
                 <h2>Material Notes</h2>
                 <Card className="mb-3">
                   <Card.Header>
@@ -108,7 +116,8 @@ export default class ProductPage extends React.Component {
                     </blockquote>
                   </Card.Body>
                 </Card>
-                {/*  */}
+                </div>
+                <div ref="tab_stockLevels">
                 <h2>Stock Levels</h2>
                 This product is currently{" "}
                 <span
@@ -141,6 +150,8 @@ export default class ProductPage extends React.Component {
                     </Card.Text>
                   </Card.Body>
                 </Card>
+                </div>
+                <div ref="tab_priceHistory">
                 <h2>Price History</h2>
                 <Chart
     options={this.state.options}
@@ -148,30 +159,13 @@ export default class ProductPage extends React.Component {
     type="line"
     width="500"
   />
+  </div>
+  <div ref="tab_specifications">
   <h2>Specifications</h2>
   <ul>
   { this.props.currentProduct.specifications.map((spec) => <li>{spec}</li> ) }
   </ul>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                  irure dolor in reprehenderit in voluptate velit esse cillum
-                  dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                  cupidatat non proident, sunt in culpa qui officia deserunt
-                  mollit anim id est laborum.
-                </p>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                  irure dolor in reprehenderit in voluptate velit esse cillum
-                  dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                  cupidatat non proident, sunt in culpa qui officia deserunt
-                  mollit anim id est laborum.
-                </p>
+  </div>
               </Col>
             </Row>
           </Card.Body>

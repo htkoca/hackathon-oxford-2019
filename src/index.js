@@ -59,7 +59,9 @@ class App extends React.Component {
         materials.forEach(function(material) {
           material.Category.split(",").forEach(function(category) {
             if (!categories.includes(category)) {
-              categories.push(category);
+              if(category != '') {
+                categories.push(category);
+              }
             }
           });
         });
