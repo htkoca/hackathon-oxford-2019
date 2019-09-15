@@ -74,10 +74,14 @@ class App extends React.Component {
           manufacturers.forEach(function(manufacturer) {
             if (manufacturer.id === el.manufacturer_source) {
               el.manufacturer = manufacturer.manufacturer;
+              el.country = manufacturer.country;
             }
           });
           if (!el.manufacturer) {
             el.manufacturer = "";
+          }
+          if (!el.country) {
+            el.country = "";
           }
           el.keywords = el.keywords.toLowerCase();
           el.Category = el.Category.toLowerCase();
