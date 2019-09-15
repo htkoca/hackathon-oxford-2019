@@ -36,7 +36,7 @@ export default class ViewList extends React.Component {
         </div>
 
         <Card  className="mb-4">
-          <Card.Header>Post Analysis 💡</Card.Header>
+          <Card.Header>Post Analysis <span role="img" aria-label="Lightbulb">💡</span></Card.Header>
           <ListGroup variant="flush">
             <ListGroup.Item>
               <h6 className="text-muted">Specifications</h6>
@@ -65,7 +65,6 @@ export default class ViewList extends React.Component {
         </Button>
 
         <Button className="mr-2" variant={this.props.state.cart.length ? 'primary' : 'secondary'} download href="/specs.pdf">
-
           Create PDF
         </Button>
       </Container>
