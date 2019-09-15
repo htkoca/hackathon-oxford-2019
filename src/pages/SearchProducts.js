@@ -37,7 +37,7 @@ export default class SearchProducts extends React.Component {
         <Form onSubmit={this.handleSubmit}>
           <Row className="mb-4">
             <Col xs={3}>
-              <Button variant="primary" block onClick={this.handleNav} data-key="ViewList">
+              <Button variant="primary" className="mb-2" block onClick={this.handleNav} data-key="ViewList">
                 ← Back
               </Button>
             </Col>
