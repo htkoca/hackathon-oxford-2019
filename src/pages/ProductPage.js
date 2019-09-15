@@ -2,7 +2,7 @@
 import React from "react";
 
 // components
-import { Container, Card, Nav, Row, Col } from "react-bootstrap";
+import { Container, Card, Button, Nav, Row, Col, Form } from "react-bootstrap";
 import Chart from "react-apexcharts";
 
 // react
@@ -102,6 +102,19 @@ export default class ProductPage extends React.Component {
                     </blockquote>
                   </Card.Body>
                 </Card>
+
+<Form>
+
+              <Form.Group controlId="exampleForm.ControlTextarea1">
+              <Form.Label>Material Notes</Form.Label>
+              <Form.Control as="textarea" rows="3" />
+              </Form.Group>
+
+              <Button variant="primary" type="submit">
+    Add Material Notes
+  </Button>
+  </Form>
+
                 </div>
                 <div ref="tabStockLevels">
                 <h2>Stock Levels</h2>
