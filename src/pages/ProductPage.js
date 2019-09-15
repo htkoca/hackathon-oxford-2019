@@ -29,7 +29,7 @@ export default class ProductPage extends React.Component {
     this.handleTab = this.handleTab.bind(this);
   }
   handleTab(event) {
-    console.log(event)
+    console.log(event.currentTarget)
   }
   render() {
     return (
@@ -51,9 +51,9 @@ export default class ProductPage extends React.Component {
                 }}
               />
                 <Nav defaultActiveKey="notes" className="flex-column">
-                  <Nav.Link className="mx-0" onClick={this.handleTab} data-key="tabMaterialNotes">Material Notes</Nav.Link>
+                  <Button className="px-0" variant="link" onClick={this.handleTab} data-key="tabMaterialNotes">Material Notes</Button>
                   {this.props.currentProduct.datasheet_url && (
-                    <Nav.Link
+                    <Button
                       target="_blank"
                       href={
                         "https://oxfordhackapi2019.herokuapp.com/" +
@@ -61,11 +61,11 @@ export default class ProductPage extends React.Component {
                       }
                     >
                       Datasheet
-                    </Nav.Link>
+                    </Button>
                   )}
-                  <Nav.Link className="mx-0" onClick={this.handleTab} data-key="tabStockLevels">Stock Level</Nav.Link>
-                  <Nav.Link className="mx-0" onClick={this.handleTab} data-key="tabPriceHistory">Price History</Nav.Link>
-                  <Nav.Link className="mx-0" onClick={this.handleTab} data-key="tabSpecifications">Specifications</Nav.Link>
+                  <Button className="px-0" variant="link" onClick={this.handleTab} data-key="tabStockLevels">Stock Level</Button>
+                  <Button className="px-0" variant="link" onClick={this.handleTab} data-key="tabPriceHistory">Price History</Button>
+                  <Button className="px-0" variant="link" onClick={this.handleTab} data-key="tabSpecifications">Specifications</Button>
                 </Nav>
                 <p>Price Calculator Goes Here</p>
               </Col>
