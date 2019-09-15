@@ -116,6 +116,7 @@ class App extends React.Component {
     this.setState({ page: "SearchProducts" });
   }
   setPage(value) {
+    console.log("Navigating to:", value)
     this.setState({ page: value });
   }
   filterSearch(value) {
@@ -149,15 +150,16 @@ class App extends React.Component {
   renderPage() {
     switch (this.state.page) {
       case "CreateProject":
-        return <CreateProject setProjName={this.setProjName} />;
+        return <CreateProject setProjName={this.setProjName} setPage={this.setPage} />;
       case "CreateList":
-        return <CreateList state={this.state} setListName={this.setListName} />;
+        return <CreateList state={this.state} setListName={this.setListName} setPage={this.setPage} />;
       case "ViewList":
         return (
           <ViewList
             state={this.state}
             gotoSearch={this.gotoSearch}
             setCurrentProduct={this.setCurrentProduct}
+            setPage={this.setPage} 
           />
         );
       case "SearchProducts":
@@ -167,6 +169,7 @@ class App extends React.Component {
             filterSearch={this.filterSearch}
             addToCart={this.addToCart}
             setCurrentProduct={this.setCurrentProduct}
+            setPage={this.setPage} 
           />
         );
       case "ProductPage":

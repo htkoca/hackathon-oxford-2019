@@ -11,12 +11,12 @@ export default class Header extends React.Component {
     this.handleNav = this.handleNav.bind(this);
   }
   handleNav(event) {
-    this.props.setPage(event.target.getAttribute("dest") || "CreateProject");
+    this.props.setPage(event.target.getAttribute("data-key") || event.currentTarget.getAttribute("data-key"));
   }
   render() {
     return (
       <Navbar bg="dark">
-        <Navbar.Brand onClick={this.handleNav} dest="CreateProject">
+        <Navbar.Brand onClick={this.handleNav} data-key="CreateProject">
           <img src="/logo.png" width="150" alt="Oxford Logo" />
         </Navbar.Brand>
         <Navbar.Brand className="ml-auto">
