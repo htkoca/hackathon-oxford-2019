@@ -44,7 +44,7 @@ export default class ViewList extends React.Component {
         <Button className="mr-2" variant="secondary">
           Post Analysis
         </Button>
-        <Button className="mr-2" variant="secondary">
+        <Button className="mr-2" variant="secondary" download href="/spec.pdf">
           Create PDF
         </Button>
       </Container>
