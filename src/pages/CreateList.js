@@ -18,11 +18,7 @@ export default class CreateList extends React.Component {
     return (
       <Container>
         <h2>{this.props.state.projName} > Create List</h2>
-        <Form
-          onSubmit={
-            this.handleSubmit
-          }
-        >
+        <Form onSubmit={this.handleSubmit }>
           <Form.Group>
             <Form.Control
               autoFocus
