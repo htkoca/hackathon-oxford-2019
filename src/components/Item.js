@@ -2,7 +2,7 @@
 import React from "react";
 
 // components
-import { Card, Row, Col, Button } from "react-bootstrap";
+import { Card, Row, Col, Button, FormControl } from "react-bootstrap";
 
 // react
 class Item extends React.Component {
@@ -12,7 +12,7 @@ class Item extends React.Component {
     this.handleFeatures = this.handleFeatures.bind(this);
   }
   handleAdd() {
-    this.props.addToCart(this.props.product);
+    this.props.addToCart(this.props.product, this.refs.qty.value);
   }
   handleFeatures() {
     this.props.setCurrentProduct(this.props.product);
@@ -47,7 +47,15 @@ class Item extends React.Component {
               <p className="small mb-0">{this.props.product.manufacturer}</p>
             </Col>
             <Col xs={3}>
-              <p className="pt-4 mt-1"> {`$${this.props.product.quote}`} </p>
+              <p className="pt-2 mt-1"> {`$${this.props.product.quote}`}  x     
+              <FormControl ref="qty"
+              size="small"
+              className="w-75"
+      placeholder="Qty"
+      aria-label="Quantity"
+      value=""
+    /></p>
+              
             </Col>
             <Col xs={3}>
               <Button variant="secondary" block onClick={this.handleFeatures}>

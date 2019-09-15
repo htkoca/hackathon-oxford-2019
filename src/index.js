@@ -139,7 +139,8 @@ class App extends React.Component {
     console.log(rslt);
     this.setState({ filtered: rslt });
   }
-  addToCart(product) {
+  addToCart(product, qty) {
+    product.qty = qty;
     this.setState({ cart: [...this.state.cart, product], page: "ViewList" });
   }
   setCurrentProduct(product) {
