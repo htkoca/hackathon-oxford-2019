@@ -69,7 +69,7 @@ export default class ProductPage extends React.Component {
                   <Button className="px-0 text-left" variant="link" onClick={this.handleTab} data-key="tabPriceHistory">Price History</Button>
                   <Button className="px-0 text-left" variant="link" onClick={this.handleTab} data-key="tabSpecifications">Specifications</Button>
                   {this.props.currentProduct.datasheet_url && (
-                    <Button className="px-0" target="_blank" href={ `https://oxfordhackapi2019.herokuapp.com/${this.props.currentProduct.datasheet_url}` }>Datasheet</Button>
+                    <Button variant="link" className="px-0 text-left" target="_blank" href={ `https://oxfordhackapi2019.herokuapp.com/${this.props.currentProduct.datasheet_url}` }>Datasheet</Button>
                   )}
                 </Nav>
                 <hr />
