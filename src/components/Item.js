@@ -27,16 +27,13 @@ class Item extends React.Component {
                 className="img-fluid float-left mr-4"
                 style={{
                   backgroundSize: "cover",
-                  backgroundImage:
-                    "url('https://oxfordhackapi2019.herokuapp.com/" +
-                    this.props.product.image_url +
-                    "')",
+                  backgroundImage: `url('https://oxfordhackapi2019.herokuapp.com/${this.props.product.image_url}')`,
                   width: "100px",
                   height: "100px"
                 }}
               />
               <Card.Title className="my-2">
-                {this.props.product.model_name}
+                <span className="mr-2">{this.props.product.model_name}</span>
                 <span
                   className={
                     this.props.product.availability == "0" ||
