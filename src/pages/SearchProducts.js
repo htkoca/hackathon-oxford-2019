@@ -38,7 +38,7 @@ export default class SearchProducts extends React.Component {
           <Row className="mb-4">
             <Col xs={3}>
               <Button variant="primary" className="mb-2" block onClick={this.handleNav} data-key="ViewList">
-                ← Back
+                ← Back to List
               </Button>
             </Col>
             <Col xs={9}>

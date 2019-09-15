@@ -50,9 +50,9 @@ export default class ProductPage extends React.Component {
             </Card.Title>
             <hr />
             <Row>
-              <Col className="border-right" xs={2}>
+              <Col className="border-right" xs={3}>
                 <Button className="mb-3" variant="primary" block onClick={this.handleNav} data-key="ViewList">
-                  ← Back
+                  ← Back to List
                 </Button>
                 <div
                   style={{
