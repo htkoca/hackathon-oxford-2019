@@ -22,6 +22,7 @@ export default class CreateList extends React.Component {
     return (
       <Container>
         <h2>{this.props.state.projName} > Create List</h2>
+        <p>Please input a name for your materials list.</p>
         <Form onSubmit={this.handleSubmit }>
           <Form.Group>
             <Form.Control

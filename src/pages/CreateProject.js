@@ -18,6 +18,7 @@ export default class CreateProject extends React.Component {
     return (
       <Container>
         <h2>Create New Project</h2>
+        <p>Please input a name or ID number for your project.</p>
         <Form onSubmit={this.handleSubmit }>
           <Form.Group>
             <Form.Control autoFocus placeholder="Project Name" ref="projName" />
