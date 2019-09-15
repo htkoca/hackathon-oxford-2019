@@ -34,7 +34,7 @@ export default class CreateList extends React.Component {
             Create New List
           </Button>
           <Button variant="secondary" onClick={this.handleNav} data-key="CreateProject">
-            Back
+            ← Back
           </Button>
         </Form>
       </Container>

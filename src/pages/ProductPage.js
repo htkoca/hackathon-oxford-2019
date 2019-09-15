@@ -29,6 +29,10 @@ export default class ProductPage extends React.Component {
     };   
     this.handleTab = this.handleTab.bind(this);
     this.handleCalculate = this.handleCalculate.bind(this);
+    this.handleNav = this.handleNav.bind(this);
+  }
+  handleNav(event) {
+    this.props.setPage(event.target.getAttribute("data-key") || event.currentTarget.getAttribute("data-key"));
   }
   handleTab(event) {
     this.setState({ currentTab: event.target.getAttribute("data-key") })
@@ -47,6 +51,9 @@ export default class ProductPage extends React.Component {
             <hr />
             <Row>
               <Col className="border-right" xs={2}>
+                <Button variant="primary" block onClick={this.handleNav} data-key="ViewList">
+                  ← Back
+                </Button>
                 <div
                   style={{
                     backgroundSize: "contain",
