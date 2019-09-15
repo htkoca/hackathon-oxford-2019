@@ -19,9 +19,9 @@ export default class CreateList extends React.Component {
       <Container>
         <h2>{this.props.state.projName} > Create List</h2>
         <Form
-          onSubmit={e => {
-            this.handleSubmit();
-          }}
+          onSubmit={
+            this.handleSubmit
+          }
         >
           <Form.Group>
             <Form.Control

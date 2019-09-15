@@ -79,6 +79,7 @@ class App extends React.Component {
           }
           el.keywords = el.keywords.toLowerCase();
           el.Category = el.Category.toLowerCase();
+          el.specifications = el.specifications.split(',');
           return el;
         });
         this.setState({ materials, categories, manufacturers, vendors });

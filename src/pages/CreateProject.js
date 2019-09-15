@@ -19,9 +19,9 @@ export default class CreateProject extends React.Component {
       <Container>
         <h2>Create New Project</h2>
         <Form
-          onSubmit={e => {
-            this.handleSubmit();
-          }}
+          onSubmit={
+            this.handleSubmit
+          }
         >
           <Form.Group>
             <Form.Control autoFocus placeholder="Project Name" ref="projName" />

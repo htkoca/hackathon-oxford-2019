@@ -3,11 +3,30 @@ import React from "react";
 
 // components
 import { Container, Card, Button, Nav, Row, Col } from "react-bootstrap";
+import Chart from "react-apexcharts";
 
 // react
 export default class ProductPage extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      options: {
+        chart: {
+          id: "line"
+        },
+        xaxis: {
+          categories: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+        }
+      },
+      series: [
+        {
+          name: "Price Change",
+          data: [...Array(12)].map(e=>~~(Math.random()*this.props.currentProduct.quote+5).toFixed(2))
+        }
+      ]
+    };   
+
   }
 
   render() {
@@ -22,7 +41,6 @@ export default class ProductPage extends React.Component {
     return (
       <Container>
         <Card>
-          <Card.Img variant="top" src="https://via.placeholder.com/1920x1080" />
           <Card.Body>
             <Card.Title>
               <h1>{this.props.currentProduct.model_name}</h1>
@@ -44,10 +62,8 @@ export default class ProductPage extends React.Component {
                     </Nav.Link>
                   )}
                   <Nav.Link event-key="stock">Stock Level</Nav.Link>
-                  <Nav.Link event-key="ratings">Ratings</Nav.Link>
                   <Nav.Link event-key="history">Price History</Nav.Link>
-                  <Nav.Link event-key="parameters">Parameters</Nav.Link>
-                  <Nav.Link event-key="catalog">Catalog</Nav.Link>
+                  <Nav.Link event-key="specifications">Specifications</Nav.Link>
                 </Nav>
                 <p>Price Calculator Goes Here</p>
               </Col>
@@ -121,11 +137,21 @@ export default class ProductPage extends React.Component {
                         {this.props.currentProduct.vendor.postal_code}
                       </p>
                       <p>{this.props.currentProduct.vendor.country} 🍁</p>
-                      Stock Level: {this.props.currentProduct.quote}
+                      Stock Level: {this.props.currentProduct.stock_level}
                     </Card.Text>
                   </Card.Body>
                 </Card>
-                <h2>Information Goes Here</h2>
+                <h2>Price History</h2>
+                <Chart
+    options={this.state.options}
+    series={this.state.series}
+    type="line"
+    width="500"
+  />
+  <h2>Specifications</h2>
+  <ul>
+  { this.props.currentProduct.specifications.map((spec) => <li>{spec}</li> ) }
+  </ul>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
