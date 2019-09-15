@@ -11,7 +11,7 @@ export default class ProductPage extends React.Component {
     super(props);
     this.state = {
       totalCalculation: '$0.00',
-      currentTab: "tab_materialNotes",
+      currentTab: "tabMaterialNotes",
       options: {
         chart: {
           id: "line"
@@ -31,7 +31,7 @@ export default class ProductPage extends React.Component {
     this.handleCalculate = this.handleCalculate.bind(this);
   }
   handleTab(event) {
-    console.log(event.currentTarget)
+    this.setState({ currentTab: event.target.getAttribute("data-key") })
   }
   handleCalculate(event) {
     this.setState ({ totalCalculation: '$' + (event.target.value * this.props.currentProduct.quote).toFixed(2) })
@@ -65,9 +65,7 @@ export default class ProductPage extends React.Component {
                     <Button className="px-0" target="_blank" href={ `https://oxfordhackapi2019.herokuapp.com/${this.props.currentProduct.datasheet_url}` }>Datasheet</Button>
                   )}
                 </Nav>
-
               <hr />
-              <div>
               <InputGroup className="mb-1">
                 <FormControl
                   placeholder="Qty"
@@ -78,11 +76,9 @@ export default class ProductPage extends React.Component {
                   <InputGroup.Text>{ this.state.totalCalculation }</InputGroup.Text>
                 </InputGroup.Append>
               </InputGroup>
-            </div>
-
               </Col>
               <Col xs={9}>
-              <div ref="tabMaterialNotes">
+              <div className={ this.state.currentTab === "tabMaterialNotes" ? "d-block" : "d-none"} >
                 <h2>Material Notes</h2>
                 <Card className="mb-3">
                   <Card.Header>
@@ -131,7 +127,7 @@ export default class ProductPage extends React.Component {
                 </Form>
 
                 </div>
-                <div ref="tabStockLevels">
+                <div className={ this.state.currentTab === "tabStockLevels" ? "d-block" : "d-none"} >
                 <h2>Stock Levels</h2>
                 This product is currently
                 <span
@@ -163,7 +159,7 @@ export default class ProductPage extends React.Component {
                   </Card.Body>
                 </Card>
                 </div>
-                <div ref="tabPriceHistory">
+                <div className={ this.state.currentTab === "tabPriceHistory" ? "d-block" : "d-none"} >
                 <h2>Price History</h2>
                 <Chart
                   options={this.state.options}
@@ -172,7 +168,7 @@ export default class ProductPage extends React.Component {
                   width="500"
                 />
                 </div>
-                <div ref="tabSpecifications">
+                <div className={ this.state.currentTab === "tabSpecifications" ? "d-block" : "d-none"} >
                 <h2>Specifications</h2>
                 <ul>
                 { this.props.currentProduct.specifications.map((spec, idx) => <li key={idx}>{spec}</li> ) }
