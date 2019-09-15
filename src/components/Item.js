@@ -9,7 +9,7 @@ class Item extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      qty: 0
+      qty: 1
     }
     this.handleAdd = this.handleAdd.bind(this);
     this.handleFeatures = this.handleFeatures.bind(this);
