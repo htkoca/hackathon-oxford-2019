@@ -51,7 +51,7 @@ export default class ProductPage extends React.Component {
                 }}
               />
                 <Nav defaultActiveKey="notes" className="flex-column">
-                  <Nav.Link onClick={this.handleTab} data-key="tabMaterialNotes">Material Notes</Nav.Link>
+                  <Nav.Link className="mx-0" onClick={this.handleTab} data-key="tabMaterialNotes">Material Notes</Nav.Link>
                   {this.props.currentProduct.datasheet_url && (
                     <Nav.Link
                       target="_blank"
@@ -63,9 +63,9 @@ export default class ProductPage extends React.Component {
                       Datasheet
                     </Nav.Link>
                   )}
-                  <Nav.Link onClick={this.handleTab} data-key="tabStockLevels">Stock Level</Nav.Link>
-                  <Nav.Link onClick={this.handleTab} data-key="tabPriceHistory">Price History</Nav.Link>
-                  <Nav.Link onClick={this.handleTab} data-key="tabSpecifications">Specifications</Nav.Link>
+                  <Nav.Link className="mx-0" onClick={this.handleTab} data-key="tabStockLevels">Stock Level</Nav.Link>
+                  <Nav.Link className="mx-0" onClick={this.handleTab} data-key="tabPriceHistory">Price History</Nav.Link>
+                  <Nav.Link className="mx-0" onClick={this.handleTab} data-key="tabSpecifications">Specifications</Nav.Link>
                 </Nav>
                 <p>Price Calculator Goes Here</p>
               </Col>
@@ -79,7 +79,6 @@ export default class ProductPage extends React.Component {
                   <Card.Body>
                     <blockquote className="blockquote mb-0">
                       <p className="small">
-                        
                         I wouldn't recommend this product, slow shipping times
                         and there are other alternatives.
                       </p>
@@ -93,7 +92,6 @@ export default class ProductPage extends React.Component {
                   <Card.Body>
                     <blockquote className="blockquote mb-0">
                       <p className="small">
-                        
                         Be mindful about whether these meet the codes necessary
                       </p>
                     </blockquote>
@@ -104,24 +102,21 @@ export default class ProductPage extends React.Component {
                   <Card.Body>
                     <blockquote className="blockquote mb-0">
                       <p className="small">
-                        
                         Anyone care to come up with something here?
                       </p>
                     </blockquote>
                   </Card.Body>
                 </Card>
 
-<Form>
-
-              <Form.Group controlId="exampleForm.ControlTextarea1">
-              <Form.Label>Material Notes</Form.Label>
-              <Form.Control as="textarea" rows="3" />
-              </Form.Group>
-
-              <Button variant="primary" type="submit">
-    Add Material Notes
-  </Button>
-  </Form>
+                <Form>
+                  <Form.Group controlId="exampleForm.ControlTextarea1">
+                    <Form.Label>Material Notes</Form.Label>
+                    <Form.Control as="textarea" rows="3" />
+                  </Form.Group>
+                  <Button variant="primary" type="submit">
+                    Add Material Notes
+                  </Button>
+                </Form>
 
                 </div>
                 <div ref="tabStockLevels">

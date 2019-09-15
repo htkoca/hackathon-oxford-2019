@@ -24,7 +24,7 @@ class Item extends React.Component {
           <Row>
             <Col xs={6}>
               <div
-                className="img-fluid float-left mr-4"
+                className="float-left mr-4"
                 style={{
                   backgroundSize: "cover",
                   backgroundImage: `url('https://oxfordhackapi2019.herokuapp.com/${this.props.product.image_url}')`,
