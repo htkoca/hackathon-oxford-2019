@@ -86,6 +86,7 @@ class App extends React.Component {
           el.keywords = el.keywords.toLowerCase();
           el.Category = el.Category.toLowerCase();
           el.specifications = el.specifications.split(',');
+          el.qty = 0;
           return el;
         });
         this.setState({ materials, categories, manufacturers, vendors });
@@ -145,7 +146,7 @@ class App extends React.Component {
     this.setState({ filtered: rslt });
   }
   addToCart(product, qty) {
-    product.qty = qty;
+    product.qty = qty || 0;
     this.setState({ cart: [...this.state.cart, product], page: "ViewList" });
   }
   setCurrentProduct(product) {
