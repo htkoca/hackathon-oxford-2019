@@ -85,64 +85,45 @@ export default class ProductPage extends React.Component {
                 </InputGroup>
               </Col>
               <Col xs={9}>
-              <div className={ this.state.currentTab === "tabMaterialNotes" ? "d-block" : "d-none"} >
-                <h2>Material Notes</h2>
-                <Card className="mb-3">
-                  <Card.Header>
-                  Danyal Parra / T4 Tower Building
-                  </Card.Header>
-                  <Card.Body>
-                    <blockquote className="blockquote mb-0">
-                      <p className="small">
-                        <em>
-                      I wouldn’t recommend this product, slow shipping times and there are other alternatives.
-                      </em>
-                        <p className="small">
-                        Posted Date: 09/15/2019
-                        </p>
-                      </p>
-                    </blockquote>
-                  </Card.Body>
-                </Card>
-                <Card className="mb-3">
-                  <Card.Header>
-                    Project Manager: Keith Barajas / Office Building
-                  </Card.Header>
-                  <Card.Body>
-                    <blockquote className="blockquote mb-0">
-                      <p>
-                      I bought it for our remodeling project in Vancouver. Before I hated to clean window seals now it’s so easy and fresh looking.
-                      <p className="small">
-                        Posted Date: 09/15/2019
-                        </p>
-                      </p>
-                    </blockquote>
-                  </Card.Body>
-                </Card>
-                <Card className="mb-3">
-                  <Card.Header>Design Lead: Leila Shields / TX Square Building</Card.Header>
-                  <Card.Body>
-                    <blockquote className="blockquote mb-0">
-                      <p>
-                      We applied to our balcony following instructions. The following spring, we noticed cracks, Reapplied but cracked again and peeled the following spring. This was expensive and a total waste of our time and money
-                        <p className="small">
-                        Posted Date: 09/15/2019
-                        </p>
-                      </p>
-                    </blockquote>
-                  </Card.Body>
-                </Card>
-
-                <Form>
-                  <Form.Group controlId="exampleForm.ControlTextarea1">
-                    <Form.Label>Material Notes</Form.Label>
-                    <Form.Control as="textarea" rows="3" />
-                  </Form.Group>
-                  <Button variant="primary" type="submit">
-                    Add Material Notes
-                  </Button>
-                </Form>
-
+                <div className={ this.state.currentTab === "tabMaterialNotes" ? "d-block" : "d-none"} >
+                  <h2>Material Notes</h2>
+                  <hr/>
+                  <Card className="mb-3">
+                    <Card.Header>Danyal Parra / T4 Tower Building</Card.Header>
+                    <Card.Body>
+                      <blockquote className="blockquote mb-0">
+                        <p className="small"><em>I wouldn’t recommend this product, slow shipping times and there are other alternatives.</em></p>
+                        <p className="small">Posted Date: 09/15/2019</p>
+                      </blockquote>
+                    </Card.Body>
+                  </Card>
+                  <Card className="mb-3">
+                    <Card.Header>Project Manager: Keith Barajas / Office Building</Card.Header>
+                    <Card.Body>
+                      <blockquote className="blockquote mb-0">
+                        <p>I bought it for our remodeling project in Vancouver. Before I hated to clean window seals now it’s so easy and fresh looking.</p>
+                        <p className="small">Posted Date: 09/15/2019</p>
+                      </blockquote>
+                    </Card.Body>
+                  </Card>
+                  <Card className="mb-3">
+                    <Card.Header>Design Lead: Leila Shields / TX Square Building</Card.Header>
+                    <Card.Body>
+                      <blockquote className="blockquote mb-0">
+                        <p>We applied to our balcony following instructions. The following spring, we noticed cracks, Reapplied but cracked again and peeled the following spring. This was expensive and a total waste of our time and money</p>
+                        <p className="small">Posted Date: 09/15/2019</p>
+                      </blockquote>
+                    </Card.Body>
+                  </Card>
+                  <Form>
+                    <Form.Group controlId="exampleForm.ControlTextarea1">
+                      <Form.Label>Material Notes</Form.Label>
+                      <Form.Control as="textarea" rows="3" />
+                    </Form.Group>
+                    <Button variant="primary" type="submit">
+                      Add Material Notes
+                    </Button>
+                  </Form>
                 </div>
                 <div className={ this.state.currentTab === "tabStockLevels" ? "d-block" : "d-none"} >
                   <h2>Stock Levels</h2>
