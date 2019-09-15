@@ -1,35 +1,69 @@
 // dependencies
-import React from 'react'
+import React from "react";
 
 // components
-import { Card, Row, Col, Button } from 'react-bootstrap'
+import { Card, Row, Col, Button } from "react-bootstrap";
 
 // react
-const Item = (props) => {
-  return (
-    <Card className="my-2">
-      <Card.Body>
-        <Row>
-          <Col xs={9}>
-
-            <div className="img-fluid float-left mr-4" style={{ backgroundSize: "cover", backgroundImage: "url('https://oxfordhackapi2019.herokuapp.com/"+props.image+"')", width: "100px", height: "100px"}}/>
-
-            <Card.Title className="my-2">{ props.name } <span className={ (props.product.availability == "0" ? 'red-circle' : 'circle')}/>
-            </Card.Title>
-
-            <p>{ props.product.manufacturer }</p>
-
-          </Col>
-          { props.showButtons &&
-            <Col xs={3}>
-              <Button variant="secondary" block>Features</Button>
-              <Button variant="secondary" block>Add Product</Button>
+class Item extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleAdd = this.handleAdd.bind(this);
+    this.handleFeatures = this.handleFeatures.bind(this);
+  }
+  handleAdd() {
+    this.props.addToCart(this.props.product);
+  }
+  handleFeatures() {
+    this.props.setCurrentProduct(this.props.product);
+  }
+  render() {
+    return (
+      <Card className="my-2">
+        <Card.Body>
+          <Row>
+            <Col xs={9}>
+              <div
+                className="img-fluid float-left mr-4"
+                style={{
+                  backgroundSize: "cover",
+                  backgroundImage:
+                    "url('https://oxfordhackapi2019.herokuapp.com/" +
+                    this.props.product.image_url +
+                    "')",
+                  width: "100px",
+                  height: "100px"
+                }}
+              />
+              <Card.Title className="my-2">
+                {this.props.product.model_name}{" "}
+                <span
+                  className={
+                    this.props.product.availability == "0" ||
+                    !this.props.product.availability
+                      ? "red-circle"
+                      : "circle"
+                  }
+                />
+              </Card.Title>
+              <p className="mb-1">{this.props.product.colour_finish}</p>
+              <p className="small">{this.props.product.manufacturer}</p>
             </Col>
-          }
-        </Row>
-      </Card.Body>
-    </Card>
-  )
+            <Col xs={3}>
+              <Button variant="secondary" block onClick={this.handleFeatures}>
+                Product Info
+              </Button>
+              {this.props.showAdd && this.props.product.availability == "1" && (
+                <Button variant="secondary" block onClick={this.handleAdd}>
+                  Add Product
+                </Button>
+              )}
+            </Col>
+          </Row>
+        </Card.Body>
+      </Card>
+    );
+  }
 }
 
-export default Item
+export default Item;

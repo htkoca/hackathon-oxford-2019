@@ -1,34 +1,25 @@
 // dependencies
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
 
 // components
-import { Navbar, Nav } from 'react-bootstrap'
+import { Navbar } from "react-bootstrap";
 
 // react
-const Header = () => {
-  return (
-    <header>
+export default class Header extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleNav = this.handleNav.bind(this);
+  }
+  handleNav(event) {
+    this.props.setPage(event.target.getAttribute("dest") || "CreateProject");
+  }
+  render() {
+    return (
       <Navbar bg="dark">
-        <Navbar.Brand href="#home">
-        <Link to="/">
-          <img
-            src="/logo.png"
-            width="150"
-            alt="Oxford Logo"
-          />
-          </Link>
+        <Navbar.Brand onClick={this.handleNav} dest="CreateProject">
+          <img src="/logo.png" width="150" alt="Oxford Logo" />
         </Navbar.Brand>
-        <Nav className="ml-auto">
-          <Nav.Link className="text-white" href="/">Create Project</Nav.Link>
-          <Nav.Link className="text-white" href="/CreateList">Create List</Nav.Link>
-          <Nav.Link className="text-white" href="/ViewList">View List</Nav.Link>
-          <Nav.Link className="text-white" href="/SearchProducts">Search Products</Nav.Link>
-          <Nav.Link className="text-white" href="/ViewProduct">View Product</Nav.Link>
-        </Nav>
       </Navbar>
-    </header>
-  )
+    );
+  }
 }
-
-export default Header
