@@ -8,14 +8,21 @@ import { Card, Row, Col, Button, FormControl } from "react-bootstrap";
 class Item extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      qty: 0
+    }
     this.handleAdd = this.handleAdd.bind(this);
     this.handleFeatures = this.handleFeatures.bind(this);
+    this.handleQty = this.handleQty.bind(this);
   }
   handleAdd() {
-    this.props.addToCart(this.props.product, this.refs.qty.value);
+    this.props.addToCart(this.props.product, this.state.qty);
   }
   handleFeatures() {
     this.props.setCurrentProduct(this.props.product);
+  }
+  handleQty(event){
+    this.setState({ qty: event.target.value })
   }
   render() {
     return (
@@ -47,15 +54,17 @@ class Item extends React.Component {
               <p className="small mb-0">{this.props.product.manufacturer}</p>
             </Col>
             <Col xs={3}>
-              <p className="pt-2 mt-1"> {`$${this.props.product.quote}`}  x     
-              <FormControl ref="qty"
-              size="small"
-              className="w-75"
-      placeholder="Qty"
-      aria-label="Quantity"
-      value=""
-    /></p>
-              
+              <p className="pt-2 mt-1"> ${this.props.product.quote}</p>
+              { this.props.product.qty && !this.props.showAdd ? 
+                <div>QTY: {this.props.product.qty}</div>
+              : <FormControl ref="qty"
+                type="number"
+                size="small"
+                className="w-75"
+                placeholder="Qty"
+                aria-label="Quantity"
+                onChange={this.handleQty}
+              /> } 
             </Col>
             <Col xs={3}>
               <Button variant="secondary" block onClick={this.handleFeatures}>
