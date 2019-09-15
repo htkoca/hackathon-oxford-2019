@@ -39,6 +39,7 @@ class App extends React.Component {
     this.gotoSearch = this.gotoSearch.bind(this);
     this.filterSearch = this.filterSearch.bind(this);
     this.addToCart = this.addToCart.bind(this);
+    this.removeFromCart = this.removeFromCart.bind(this);
     this.setCurrentProduct = this.setCurrentProduct.bind(this);
     this.setPage = this.setPage.bind(this);
   }
@@ -150,6 +151,13 @@ class App extends React.Component {
     product.qty = qty || 1;
     this.setState({ cart: [...this.state.cart, product], page: "ViewList" });
   }
+  removeFromCart(product, qty) {
+    product.qty = 0;
+    let rslt = this.state.cart.filter((filterProd) => {
+      return filterProd.id !== product.id
+    })
+    this.setState({ cart: rslt, page: "ViewList" });
+  }
   setCurrentProduct(product) {
     this.setState({ currentProduct: product, page: "ProductPage" });
   }
@@ -165,6 +173,7 @@ class App extends React.Component {
             state={this.state}
             gotoSearch={this.gotoSearch}
             setCurrentProduct={this.setCurrentProduct}
+            removeFromCart={this.removeFromCart}
             setPage={this.setPage} 
           />
         );

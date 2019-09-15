@@ -9,14 +9,18 @@ class Item extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      qty: 0
+      qty: 1
     }
     this.handleAdd = this.handleAdd.bind(this);
+    this.handleRemove = this.handleRemove.bind(this);
     this.handleFeatures = this.handleFeatures.bind(this);
     this.handleQty = this.handleQty.bind(this);
   }
   handleAdd() {
     this.props.addToCart(this.props.product, this.state.qty);
+  }
+  handleRemove() {
+    this.props.removeFromCart(this.props.product, this.state.qty);
   }
   handleFeatures() {
     this.props.setCurrentProduct(this.props.product);
@@ -73,6 +77,11 @@ class Item extends React.Component {
               {this.props.showAdd && this.props.product.availability === "1" && (
                 <Button variant="secondary" block onClick={this.handleAdd}>
                   Add Product
+                </Button>
+              )}
+              {!this.props.showAdd && (
+                <Button variant="secondary" block onClick={this.handleRemove}>
+                  Remove Product
                 </Button>
               )}
             </Col>
