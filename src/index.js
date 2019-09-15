@@ -126,6 +126,7 @@ class App extends React.Component {
   }
   filterSearch(value) {
     let rslt = [];
+    
     if (value.length >= 3) {
       this.state.materials.forEach(function(el) {
         if (
@@ -146,7 +147,7 @@ class App extends React.Component {
     this.setState({ filtered: rslt });
   }
   addToCart(product, qty) {
-    product.qty = qty || 0;
+    product.qty = qty || 1;
     this.setState({ cart: [...this.state.cart, product], page: "ViewList" });
   }
   setCurrentProduct(product) {
