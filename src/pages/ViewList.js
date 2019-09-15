@@ -14,7 +14,7 @@ export default class ViewList extends React.Component {
   render() {
     return (
       <Container>
-        <h2>
+        <h2 className="text-capitalize">
           {this.props.state.projName} > {this.props.state.listName}
         </h2>
         <div>
@@ -36,7 +36,7 @@ export default class ViewList extends React.Component {
         </div>
 
         <Card  className="mb-4">
-          <Card.Header>Post Analysis</Card.Header>
+          <Card.Header>Post Analysis 💡</Card.Header>
           <ListGroup variant="flush">
             <ListGroup.Item>
               <h6 className="text-muted">Specifications</h6>
@@ -49,8 +49,8 @@ export default class ViewList extends React.Component {
             <ListGroup.Item>
               <h6 className="text-muted">Country of Origin</h6>
               { this.props.state.cart.map((product, idx) => {
-                return product.manufacturer.country !== "Canada" ? 
-                  <p className="mb-0"><strong>{product.model_name}</strong> is not produced in Canada. Consider ordering from a local supplier.</p>
+                return product.country !== "Canada" ? 
+                  <p className="mb-0"><strong>{product.model_name} ({product.country})</strong> is not produced in Canada. Consider ordering from a local supplier.</p>
                 : ""
               }) }      
             </ListGroup.Item>
