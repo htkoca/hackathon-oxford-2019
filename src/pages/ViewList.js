@@ -24,6 +24,7 @@ export default class ViewList extends React.Component {
                 key={idx}
                 product={product}
                 setCurrentProduct={this.props.setCurrentProduct}
+                removeFromCart={this.props.removeFromCart}
               />
             ))
           ) : (
