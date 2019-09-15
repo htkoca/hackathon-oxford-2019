@@ -50,9 +50,9 @@ export default class ProductPage extends React.Component {
             </Card.Title>
             <hr />
             <Row>
-              <Col className="border-right" xs={2}>
+              <Col className="border-right" xs={3}>
                 <Button className="mb-3" variant="primary" block onClick={this.handleNav} data-key="ViewList">
-                  ← Back
+                  ← Back to List
                 </Button>
                 <div
                   style={{
@@ -72,17 +72,17 @@ export default class ProductPage extends React.Component {
                     <Button className="px-0" target="_blank" href={ `https://oxfordhackapi2019.herokuapp.com/${this.props.currentProduct.datasheet_url}` }>Datasheet</Button>
                   )}
                 </Nav>
-              <hr />
-              <InputGroup className="mb-1">
-                <FormControl
-                  placeholder="Qty"
-                  aria-label=""
-                  onChange={this.handleCalculate}
-                />
-                <InputGroup.Append>
-                  <InputGroup.Text>{ this.state.totalCalculation }</InputGroup.Text>
-                </InputGroup.Append>
-              </InputGroup>
+                <hr />
+                <InputGroup className="mb-1">
+                  <FormControl
+                    placeholder="Qty"
+                    aria-label=""
+                    onChange={this.handleCalculate}
+                  />
+                  <InputGroup.Append>
+                    <InputGroup.Text>{ this.state.totalCalculation }</InputGroup.Text>
+                  </InputGroup.Append>
+                </InputGroup>
               </Col>
               <Col xs={9}>
               <div className={ this.state.currentTab === "tabMaterialNotes" ? "d-block" : "d-none"} >
@@ -145,51 +145,56 @@ export default class ProductPage extends React.Component {
 
                 </div>
                 <div className={ this.state.currentTab === "tabStockLevels" ? "d-block" : "d-none"} >
-                <h2>Stock Levels</h2>
-                This product is currently
-                <span
-                  className={
-                    this.props.currentProduct.availability === "0" ||
-                    !this.props.currentProduct.availability
-                      ? "red-circle"
-                      : "circle"
-                  }
-                />
-                <strong>
-                  {this.props.currentProduct.availability === "1"
-                    ? "Available"
-                    : "Unavailable"}
-                </strong>
-                <Card>
-                  <Card.Body>
-                    <Card.Title>
-                      {this.props.currentProduct.vendor.name}
-                    </Card.Title>
-                    <p>{this.props.currentProduct.vendor.address}</p>
-                    <p>
-                      {this.props.currentProduct.vendor.address_2},
-                      {this.props.currentProduct.vendor.city_state},
-                      {this.props.currentProduct.vendor.postal_code}
-                    </p>
-                    <p>{this.props.currentProduct.vendor.country} <span role="img" aria-label="maple leaf">🍁</span></p>
-                    <p>Stock Level: {this.props.currentProduct.stock_level}</p>
-                  </Card.Body>
-                </Card>
+                  <h2>Stock Levels</h2>
+                  <hr/>
+                  <p>
+                    This product is currently
+                    <span
+                      className={
+                        this.props.currentProduct.availability === "0" ||
+                        !this.props.currentProduct.availability
+                          ? "red-circle mx-2"
+                          : "circle mx-2"
+                      }
+                    />
+                    <strong>
+                      {this.props.currentProduct.availability === "1"
+                        ? "Available"
+                        : "Unavailable"}
+                    </strong>
+                  </p>
+                  <Card>
+                    <Card.Body>
+                      <Card.Title>
+                        {this.props.currentProduct.vendor.name}
+                      </Card.Title>
+                      <p>{this.props.currentProduct.vendor.address}</p>
+                      <p>
+                        {this.props.currentProduct.vendor.address_2},
+                        {this.props.currentProduct.vendor.city_state},
+                        {this.props.currentProduct.vendor.postal_code}
+                      </p>
+                      <p>{this.props.currentProduct.vendor.country} <span role="img" aria-label="maple leaf">🍁</span></p>
+                      <p>Stock Level: {this.props.currentProduct.stock_level}</p>
+                    </Card.Body>
+                  </Card>
                 </div>
                 <div className={ this.state.currentTab === "tabPriceHistory" ? "d-block" : "d-none"} >
-                <h2>Price History</h2>
-                <Chart
-                  options={this.state.options}
-                  series={this.state.series}
-                  type="line"
-                  width="500"
-                />
+                  <h2>Price History</h2>
+                  <hr/>
+                  <Chart
+                    options={this.state.options}
+                    series={this.state.series}
+                    type="line"
+                    width="500"
+                  />
                 </div>
                 <div className={ this.state.currentTab === "tabSpecifications" ? "d-block" : "d-none"} >
-                <h2>Specifications</h2>
-                <ul>
-                { this.props.currentProduct.specifications.map((spec, idx) => <li key={idx}>{spec}</li> ) }
-                </ul>
+                  <h2>Specifications</h2>
+                  <hr/>
+                  <ul>
+                  { this.props.currentProduct.specifications.map((spec, idx) => <li key={idx}>{spec}</li> ) }
+                  </ul>
                 </div>
               </Col>
             </Row>
