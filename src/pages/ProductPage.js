@@ -2,7 +2,7 @@
 import React from "react";
 
 // components
-import { Container, Card, Button, Nav, Row, Col, Form } from "react-bootstrap";
+import { Container, Card, Button, Nav, Row, Col, Form, InputGroup, FormControl } from "react-bootstrap";
 import Chart from "react-apexcharts";
 
 // react
@@ -10,6 +10,7 @@ export default class ProductPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      totalCalculation: '$0.00',
       currentTab: "tab_materialNotes",
       options: {
         chart: {
@@ -27,9 +28,13 @@ export default class ProductPage extends React.Component {
       ]
     };   
     this.handleTab = this.handleTab.bind(this);
+    this.handleCalculate = this.handleCalculate.bind(this);
   }
   handleTab(event) {
     console.log(event)
+  }
+  handleCalculate(event) {
+    this.setState ({ totalCalculation: '$' + (event.target.value * this.props.currentProduct.quote).toFixed(2) })
   }
   render() {
     return (
@@ -67,7 +72,21 @@ export default class ProductPage extends React.Component {
                   <Nav.Link onClick={this.handleTab} data-key="tabPriceHistory">Price History</Nav.Link>
                   <Nav.Link onClick={this.handleTab} data-key="tabSpecifications">Specifications</Nav.Link>
                 </Nav>
-                <p>Price Calculator Goes Here</p>
+
+              <hr />
+              <div>
+              <InputGroup className="mb-1">
+                <FormControl
+                  placeholder="Qty"
+                  aria-label=""
+                  onChange={this.handleCalculate}
+                />
+                <InputGroup.Append>
+                  <InputGroup.Text>{ this.state.totalCalculation }</InputGroup.Text>
+                </InputGroup.Append>
+              </InputGroup>
+            </div>
+
               </Col>
               <Col xs={9}>
               <div ref="tabMaterialNotes">
@@ -168,7 +187,7 @@ export default class ProductPage extends React.Component {
                 <div ref="tabSpecifications">
                 <h2>Specifications</h2>
                 <ul>
-                { this.props.currentProduct.specifications.map((spec) => <li>{spec}</li> ) }
+                { this.props.currentProduct.specifications.map((spec, idx) => <li key={idx}>{spec}</li> ) }
                 </ul>
                 </div>
               </Col>
