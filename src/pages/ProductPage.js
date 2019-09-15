@@ -31,7 +31,7 @@ export default class ProductPage extends React.Component {
     this.handleCalculate = this.handleCalculate.bind(this);
   }
   handleTab(event) {
-    console.log(event)
+    console.log(event.currentTarget)
   }
   handleCalculate(event) {
     this.setState ({ totalCalculation: '$' + (event.target.value * this.props.currentProduct.quote).toFixed(2) })
@@ -47,30 +47,23 @@ export default class ProductPage extends React.Component {
             <hr />
             <Row>
               <Col className="border-right" xs={2}>
-              <div
-                style={{
-                  backgroundSize: "contain",
-                  backgroundImage: `url('https://oxfordhackapi2019.herokuapp.com/${this.props.currentProduct.image_url}')`,
-                  width: "100%",
-                  height: "150px"
-                }}
-              />
+                <div
+                  style={{
+                    backgroundSize: "contain",
+                    backgroundImage: `url('https://oxfordhackapi2019.herokuapp.com/${this.props.currentProduct.image_url}')`,
+                    width: "100%",
+                    height: "150px"
+                  }}
+                />
+                <hr/>
                 <Nav defaultActiveKey="notes" className="flex-column">
-                  <Nav.Link onClick={this.handleTab} data-key="tabMaterialNotes">Material Notes</Nav.Link>
+                  <Button className="px-0 text-left" variant="link" onClick={this.handleTab} data-key="tabMaterialNotes">Material Notes</Button>
+                  <Button className="px-0 text-left" variant="link" onClick={this.handleTab} data-key="tabStockLevels">Stock Level</Button>
+                  <Button className="px-0 text-left" variant="link" onClick={this.handleTab} data-key="tabPriceHistory">Price History</Button>
+                  <Button className="px-0 text-left" variant="link" onClick={this.handleTab} data-key="tabSpecifications">Specifications</Button>
                   {this.props.currentProduct.datasheet_url && (
-                    <Nav.Link
-                      target="_blank"
-                      href={
-                        "https://oxfordhackapi2019.herokuapp.com/" +
-                        this.props.currentProduct.datasheet_url
-                      }
-                    >
-                      Datasheet
-                    </Nav.Link>
+                    <Button className="px-0" target="_blank" href={ `https://oxfordhackapi2019.herokuapp.com/${this.props.currentProduct.datasheet_url}` }>Datasheet</Button>
                   )}
-                  <Nav.Link onClick={this.handleTab} data-key="tabStockLevels">Stock Level</Nav.Link>
-                  <Nav.Link onClick={this.handleTab} data-key="tabPriceHistory">Price History</Nav.Link>
-                  <Nav.Link onClick={this.handleTab} data-key="tabSpecifications">Specifications</Nav.Link>
                 </Nav>
 
               <hr />
@@ -98,7 +91,6 @@ export default class ProductPage extends React.Component {
                   <Card.Body>
                     <blockquote className="blockquote mb-0">
                       <p className="small">
-                        
                         I wouldn't recommend this product, slow shipping times
                         and there are other alternatives.
                       </p>
@@ -112,7 +104,6 @@ export default class ProductPage extends React.Component {
                   <Card.Body>
                     <blockquote className="blockquote mb-0">
                       <p className="small">
-                        
                         Be mindful about whether these meet the codes necessary
                       </p>
                     </blockquote>
@@ -123,24 +114,21 @@ export default class ProductPage extends React.Component {
                   <Card.Body>
                     <blockquote className="blockquote mb-0">
                       <p className="small">
-                        
                         Anyone care to come up with something here?
                       </p>
                     </blockquote>
                   </Card.Body>
                 </Card>
 
-<Form>
-
-              <Form.Group controlId="exampleForm.ControlTextarea1">
-              <Form.Label>Material Notes</Form.Label>
-              <Form.Control as="textarea" rows="3" />
-              </Form.Group>
-
-              <Button variant="primary" type="submit">
-    Add Material Notes
-  </Button>
-  </Form>
+                <Form>
+                  <Form.Group controlId="exampleForm.ControlTextarea1">
+                    <Form.Label>Material Notes</Form.Label>
+                    <Form.Control as="textarea" rows="3" />
+                  </Form.Group>
+                  <Button variant="primary" type="submit">
+                    Add Material Notes
+                  </Button>
+                </Form>
 
                 </div>
                 <div ref="tabStockLevels">

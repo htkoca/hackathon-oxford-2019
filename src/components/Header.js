@@ -19,6 +19,9 @@ export default class Header extends React.Component {
         <Navbar.Brand onClick={this.handleNav} dest="CreateProject">
           <img src="/logo.png" width="150" alt="Oxford Logo" />
         </Navbar.Brand>
+        <Navbar.Brand className="ml-auto">
+          <img src="/logo-app.png" width="40" height="40" alt="Oxford Logo" />
+        </Navbar.Brand>
       </Navbar>
     );
   }

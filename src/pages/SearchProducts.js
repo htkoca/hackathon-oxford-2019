@@ -22,7 +22,7 @@ export default class SearchProducts extends React.Component {
   handleChecked(e){
     let rslt = this.state.checked.split(" ");
     rslt.push(e.target.name)
-    rslt = rslt.filter((name) => e.target.name == name ? e.target.checked : true)
+    rslt = rslt.filter((name) => e.target.name === name ? e.target.checked : true)
     this.setState({ checked: rslt.join(" ") }, () => {
       this.handleSubmit(e);
     })

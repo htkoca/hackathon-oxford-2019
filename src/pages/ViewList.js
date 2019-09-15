@@ -9,6 +9,7 @@ import Item from "../components/Item";
 export default class ViewList extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {};
   }
   render() {
     return (

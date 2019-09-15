@@ -24,7 +24,7 @@ class Item extends React.Component {
           <Row>
             <Col xs={6}>
               <div
-                className="img-fluid float-left mr-4"
+                className="float-left mr-4"
                 style={{
                   backgroundSize: "cover",
                   backgroundImage: `url('https://oxfordhackapi2019.herokuapp.com/${this.props.product.image_url}')`,
@@ -36,7 +36,7 @@ class Item extends React.Component {
                 <span className="mr-2">{this.props.product.model_name}</span>
                 <span
                   className={
-                    this.props.product.availability == "0" ||
+                    this.props.product.availability === "0" ||
                     !this.props.product.availability
                       ? "red-circle"
                       : "circle"
@@ -47,13 +47,13 @@ class Item extends React.Component {
               <p className="small mb-0">{this.props.product.manufacturer}</p>
             </Col>
             <Col xs={3}>
-              <p classname="my-4"> {`$${this.props.product.quote}`} </p>
+              <p className="pt-4 mt-1"> {`$${this.props.product.quote}`} </p>
             </Col>
             <Col xs={3}>
               <Button variant="secondary" block onClick={this.handleFeatures}>
                 Product Info
               </Button>
-              {this.props.showAdd && this.props.product.availability == "1" && (
+              {this.props.showAdd && this.props.product.availability === "1" && (
                 <Button variant="secondary" block onClick={this.handleAdd}>
                   Add Product
                 </Button>
