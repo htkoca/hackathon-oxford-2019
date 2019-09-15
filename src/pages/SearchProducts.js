@@ -14,6 +14,10 @@ export default class SearchProducts extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChecked = this.handleChecked.bind(this);
+    this.handleNav = this.handleNav.bind(this);
+  }
+  handleNav(event) {
+    this.props.setPage(event.target.getAttribute("data-key") || event.currentTarget.getAttribute("data-key"));
   }
   handleSubmit(e) {
     this.props.filterSearch(`${this.refs.searchBox.value} ${this.state.checked}`);
@@ -32,6 +36,11 @@ export default class SearchProducts extends React.Component {
       <Container>
         <Form onSubmit={this.handleSubmit}>
           <Row className="mb-4">
+            <Col xs={3}>
+              <Button variant="primary" block onClick={this.handleNav} data-key="ViewList">
+                ← Back
+              </Button>
+            </Col>
             <Col xs={9}>
               <Form.Control
                 autoFocus
@@ -40,24 +49,8 @@ export default class SearchProducts extends React.Component {
                 onChange={this.handleSubmit}
               />
             </Col>
-            <Col xs={3}>
-              <Button variant="primary" block onClick={this.handleSubmit}>
-                Search Page
-              </Button>
-            </Col>
           </Row>
           <Row>
-            <Col xs={9}>
-              {this.props.state.filtered.map((product, idx) => (
-                <Item
-                  key={idx}
-                  product={product}
-                  showAdd="true"
-                  addToCart={this.props.addToCart}
-                  setCurrentProduct={this.props.setCurrentProduct}
-                />
-              ))}
-            </Col>
             <Col xs={3}>
               <div className="mb-4">
                 <h4>Stock Legend</h4>
@@ -70,6 +63,17 @@ export default class SearchProducts extends React.Component {
                   { this.props.state.categories.map((cat, idx) => <Form.Check type='checkbox' name={cat} label={cat} onChange={this.handleChecked} /> ) }
                 </Form.Group>
               </div>
+            </Col>
+            <Col xs={9}>
+              {this.props.state.filtered.map((product, idx) => (
+                <Item
+                  key={idx}
+                  product={product}
+                  showAdd="true"
+                  addToCart={this.props.addToCart}
+                  setCurrentProduct={this.props.setCurrentProduct}
+                />
+              ))}
             </Col>
           </Row>
         </Form>

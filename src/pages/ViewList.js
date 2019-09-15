@@ -64,7 +64,12 @@ export default class ViewList extends React.Component {
         >
           Search for Products
         </Button>
-        <Button className="mr-2" variant="secondary" download href="/specs.pdf">
+
+        <Button className="mr-2" variant="secondary">
+          Post Analysis
+        </Button>
+        <Button className="mr-2" variant={this.props.state.cart.length ? 'primary' : 'secondary'} download href="/specs.pdf">
+
           Create PDF
         </Button>
       </Container>

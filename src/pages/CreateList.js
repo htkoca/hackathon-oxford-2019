@@ -9,6 +9,10 @@ export default class CreateList extends React.Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleNav = this.handleNav.bind(this);
+  }
+  handleNav(event) {
+    this.props.setPage(event.target.getAttribute("data-key") || event.currentTarget.getAttribute("data-key"));
   }
   handleSubmit(e) {
     this.props.setListName(this.refs.listName.value);
@@ -26,8 +30,11 @@ export default class CreateList extends React.Component {
               ref="listName"
             />
           </Form.Group>
-          <Button variant="primary" onClick={this.handleSubmit}>
+          <Button className="mr-2" variant="primary" onClick={this.handleSubmit}>
             Create New List
+          </Button>
+          <Button variant="secondary" onClick={this.handleNav} data-key="CreateProject">
+            ← Back
           </Button>
         </Form>
       </Container>
