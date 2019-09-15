@@ -42,30 +42,23 @@ export default class ProductPage extends React.Component {
             <hr />
             <Row>
               <Col className="border-right" xs={2}>
-              <div
-                style={{
-                  backgroundSize: "contain",
-                  backgroundImage: `url('https://oxfordhackapi2019.herokuapp.com/${this.props.currentProduct.image_url}')`,
-                  width: "100%",
-                  height: "150px"
-                }}
-              />
+                <div
+                  style={{
+                    backgroundSize: "contain",
+                    backgroundImage: `url('https://oxfordhackapi2019.herokuapp.com/${this.props.currentProduct.image_url}')`,
+                    width: "100%",
+                    height: "150px"
+                  }}
+                />
+                <hr/>
                 <Nav defaultActiveKey="notes" className="flex-column">
-                  <Button className="px-0" variant="link" onClick={this.handleTab} data-key="tabMaterialNotes">Material Notes</Button>
+                  <Button className="px-0 text-left" variant="link" onClick={this.handleTab} data-key="tabMaterialNotes">Material Notes</Button>
+                  <Button className="px-0 text-left" variant="link" onClick={this.handleTab} data-key="tabStockLevels">Stock Level</Button>
+                  <Button className="px-0 text-left" variant="link" onClick={this.handleTab} data-key="tabPriceHistory">Price History</Button>
+                  <Button className="px-0 text-left" variant="link" onClick={this.handleTab} data-key="tabSpecifications">Specifications</Button>
                   {this.props.currentProduct.datasheet_url && (
-                    <Button
-                      target="_blank"
-                      href={
-                        "https://oxfordhackapi2019.herokuapp.com/" +
-                        this.props.currentProduct.datasheet_url
-                      }
-                    >
-                      Datasheet
-                    </Button>
+                    <Button className="px-0" target="_blank" href={ `https://oxfordhackapi2019.herokuapp.com/${this.props.currentProduct.datasheet_url}` }>Datasheet</Button>
                   )}
-                  <Button className="px-0" variant="link" onClick={this.handleTab} data-key="tabStockLevels">Stock Level</Button>
-                  <Button className="px-0" variant="link" onClick={this.handleTab} data-key="tabPriceHistory">Price History</Button>
-                  <Button className="px-0" variant="link" onClick={this.handleTab} data-key="tabSpecifications">Specifications</Button>
                 </Nav>
                 <p>Price Calculator Goes Here</p>
               </Col>
