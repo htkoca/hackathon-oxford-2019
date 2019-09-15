@@ -89,35 +89,45 @@ export default class ProductPage extends React.Component {
                 <h2>Material Notes</h2>
                 <Card className="mb-3">
                   <Card.Header>
-                    Project Manager: Tony Ko / T4 Tower Building
+                  Danyal Parra / T4 Tower Building
                   </Card.Header>
                   <Card.Body>
                     <blockquote className="blockquote mb-0">
                       <p className="small">
-                        I wouldn't recommend this product, slow shipping times
-                        and there are other alternatives.
+                        <em>
+                      I wouldn’t recommend this product, slow shipping times and there are other alternatives.
+                      </em>
+                        <p className="small">
+                        Posted Date: 09/15/2019
+                        </p>
                       </p>
                     </blockquote>
                   </Card.Body>
                 </Card>
                 <Card className="mb-3">
                   <Card.Header>
-                    Project Manager: Tony Ko / Office Building
+                    Project Manager: Keith Barajas / Office Building
                   </Card.Header>
                   <Card.Body>
                     <blockquote className="blockquote mb-0">
+                      <p>
+                      I bought it for our remodeling project in Vancouver. Before I hated to clean window seals now it’s so easy and fresh looking.
                       <p className="small">
-                        Be mindful about whether these meet the codes necessary
+                        Posted Date: 09/15/2019
+                        </p>
                       </p>
                     </blockquote>
                   </Card.Body>
                 </Card>
                 <Card className="mb-3">
-                  <Card.Header>Comment from a manager</Card.Header>
+                  <Card.Header>Design Lead: Leila Shields / TX Square Building</Card.Header>
                   <Card.Body>
                     <blockquote className="blockquote mb-0">
-                      <p className="small">
-                        Anyone care to come up with something here?
+                      <p>
+                      We applied to our balcony following instructions. The following spring, we noticed cracks, Reapplied but cracked again and peeled the following spring. This was expensive and a total waste of our time and money
+                        <p className="small">
+                        Posted Date: 09/15/2019
+                        </p>
                       </p>
                     </blockquote>
                   </Card.Body>
