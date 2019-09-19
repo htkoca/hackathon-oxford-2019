@@ -176,9 +176,9 @@ class App extends React.Component {
     if(this.state.loaded === 0){
       return <Container className="text-center"><Alert variant="primary"><i className="fas fa-spinner fa-spin"></i> Please wait as we load the API! This should take 1-5 minutes.</Alert></Container>
     } else if (this.state.loaded === 2 ) {
-      return <Container className="text-center"><Alert variant="warning"><i className="fas fa-exclamation-circle"></i>There has been an issue loading the api. Please contact the developer with this error message.</Alert></Container>
+      return <Container className="text-center"><Alert variant="warning"><i className="fas fa-exclamation-circle"></i>There has been an issue loading the api. Try again in 5 minutes. Please contact the developer with this error message.</Alert></Container>
     } else if (this.state.loaded === 3 ) {
-      return <Container className="text-center"><Alert variant="warning"><i className="fas fa-exclamation-circle"></i>There has been an issue parsing the api. Please contact the developer with this error message.</Alert></Container>
+      return <Container className="text-center"><Alert variant="warning"><i className="fas fa-exclamation-circle"></i>There has been an fatal error parsing the api. Please contact the developer with this error message.</Alert></Container>
     }
     // render app view
     switch (this.state.page) {
