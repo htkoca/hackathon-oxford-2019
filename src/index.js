@@ -4,6 +4,7 @@ import ReactDOM from "react-dom";
 import lunr from "elasticlunr";
 
 // components
+import { Container, Alert } from 'react-bootstrap';
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
@@ -22,6 +23,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      loaded: 0,
       page: "CreateProject",
       projName: "",
       listName: "",
@@ -45,71 +47,79 @@ class App extends React.Component {
   }
   componentDidMount() {
     Promise.all([
-      fetch("https://oxfordhackapi2019.herokuapp.com/materials").then(resp =>
+      fetch("https://ca-app-live-api.herokuapp.com/materials").then(resp =>
         resp.json()
       ),
-      fetch("https://oxfordhackapi2019.herokuapp.com/manufacturers").then(
+      fetch("https://ca-app-live-api.herokuapp.com/manufacturers").then(
         resp => resp.json()
       ),
-      fetch("https://oxfordhackapi2019.herokuapp.com/vendors").then(resp =>
+      fetch("https://ca-app-live-api.herokuapp.com/vendors").then(resp =>
         resp.json()
       )
     ])
       .then(([materials, manufacturers, vendors]) => {
-        let categories = [];
-        materials.forEach(function(material) {
-          material.Category.split(",").forEach(function(category) {
-            if (!categories.includes(category)) {
-              if(category !== '') {
-                categories.push(category);
+        try {
+          let categories = [];
+          materials.forEach(function(material) {
+            material.Category.split(",").forEach(function(category) {
+              if (!categories.includes(category)) {
+                if(category !== '') {
+                  categories.push(category);
+                }
               }
-            }
+            });
           });
-        });
-        materials = materials.map(function(el) {
-          vendors.forEach(function(vendor) {
-            if (vendor.id === el.vendor_source) {
-              el.vendor = vendor;
+          materials = materials.map(function(el) {
+            vendors.forEach(function(vendor) {
+              if (vendor.id === el.vendor_source) {
+                el.vendor = vendor;
+              }
+            });
+            manufacturers.forEach(function(manufacturer) {
+              if (manufacturer.id === el.manufacturer_source) {
+                el.manufacturer = manufacturer.manufacturer;
+                el.country = manufacturer.country;
+              }
+            });
+            if (!el.manufacturer) {
+              el.manufacturer = "";
             }
-          });
-          manufacturers.forEach(function(manufacturer) {
-            if (manufacturer.id === el.manufacturer_source) {
-              el.manufacturer = manufacturer.manufacturer;
-              el.country = manufacturer.country;
+            if (!el.country) {
+              el.country = "";
             }
+            el.keywords = el.keywords.toLowerCase();
+            el.Category = el.Category.toLowerCase();
+            el.specifications = el.specifications.split(',');
+            el.qty = 0;
+            return el;
           });
-          if (!el.manufacturer) {
-            el.manufacturer = "";
-          }
-          if (!el.country) {
-            el.country = "";
-          }
-          el.keywords = el.keywords.toLowerCase();
-          el.Category = el.Category.toLowerCase();
-          el.specifications = el.specifications.split(',');
-          el.qty = 0;
-          return el;
-        });
-        this.setState({ materials, categories, manufacturers, vendors });
-        let lunrIndex = lunr(function() {
-          this.addField("model_name");
-          this.addField("keywords");
-          this.addField("Category");
-          this.addField("manufacturer");
-          this.addField("colour_finish");
-          this.addField("list_name");
-        });
-        materials.forEach(product => {
-          lunrIndex.addDoc(product);
-        });
-        this.setState({ lunrIndex });
-        console.log("materials", materials);
-        console.log("manufacturers", manufacturers);
-        console.log("vendors", vendors);
-        console.log("categories", categories);
+          this.setState({ materials, categories, manufacturers, vendors });
+          let lunrIndex = lunr(function() {
+            this.addField("model_name");
+            this.addField("keywords");
+            this.addField("Category");
+            this.addField("manufacturer");
+            this.addField("colour_finish");
+            this.addField("list_name");
+          });
+          materials.forEach(product => {
+            lunrIndex.addDoc(product);
+          });
+          this.setState({ lunrIndex });
+          console.log("materials", materials);
+          console.log("manufacturers", manufacturers);
+          console.log("vendors", vendors);
+          console.log("categories", categories);
+          console.log("API successfully loaded");
+          this.setState({ loaded: 1 })
+        } catch (err) {
+          console.log("API parse failed", err, materials, manufacturers, vendors);
+          this.setState({ loaded: 3 })
+        }
       })
       .catch(err => {
-        console.log(err);
+        console.log("API load failed", err);
+        this.setState({ loaded: 2 })
       });
   }
   setProjName(value) {
@@ -162,6 +172,15 @@ class App extends React.Component {
     this.setState({ currentProduct: product, page: "ProductPage" });
   }
   renderPage() {
+    // error handling
+    if(this.state.loaded === 0){
+      return <Container className="text-center"><Alert variant="primary"><i className="fas fa-spinner fa-spin"></i> Please wait as we load the API! This should take 1-5 minutes.</Alert></Container>
+    } else if (this.state.loaded === 2 ) {
+      return <Container className="text-center"><Alert variant="warning"><i className="fas fa-exclamation-circle"></i>There has been an issue loading the api. Please contact the developer with this error message.</Alert></Container>
+    } else if (this.state.loaded === 3 ) {
+      return <Container className="text-center"><Alert variant="warning"><i className="fas fa-exclamation-circle"></i>There has been an issue parsing the api. Please contact the developer with this error message.</Alert></Container>
+    }
+    // render app view
     switch (this.state.page) {
       case "CreateProject":
         return <CreateProject setProjName={this.setProjName} setPage={this.setPage} />;
