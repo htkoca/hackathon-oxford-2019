@@ -1,0 +1,20 @@
+id,name,address,address_2,city_state,postal_code,country,phone,mobile,fax,contact,email,web
+1,Stone Tile,1451 Castlefield Ave,Toronto,ON,M6M 1Y3,Canada,(416) 515-9000 ext. 61619,416-833-9379,(416) 534-1782,Nancy Brenner,nancyb@stone-tile.com,stone-tile.com
+2,Olympia Tile,1000 Lawrence Avenue West,Toronto,ON,M6A 1C6,Canada,(416) 785-6666 ext. 481,(416) 219-4850,(416) 785-9682,Shauna Dart,shauna.d@olympiatile.com,olympiatile.com
+3,Porcelanosa,735 Caledonia Road,Toronto,ON,M6B 4B3,Canada,(416) 782-5394,(437) 224-9284,(416) 784-5432,Marija Milic,mmilic@porcelanosa.ca,porcelanosa.ca
+4,Ceragres,170 Tycos Drive,Toronto,ON,M6B 1W8,Canada,(416) 286-3553,(416) 659-1419,(416) 284-0251,Krista Carvalho,kcarvalho@ceragres.ca,ceragres.ca
+5,Vi Flooring,10 Queen Elizabeth Blvd.,Toronto,ON,M8Z 1L8,Canada,(416) 521-9014 ext. 228,(647) 274-6401,(416) 521-9016,Keelan Neal,kneal@vifloor.com,vifloor.com
+6,Schluter,21100 chemin Ste-Marie,Ste-Anne-de-Bellevue,QC,H9X 3Y8,Canada,1-(800) 667-8746,,1-(877) 667-2410,Joanna Tiffin,jtiffin@schluter.com,schluter.com
+7,Kinesik,2213 North Sheridan Way,Mississauga,ON,L5K 1A3,Canada,(855) 364-7763,(647) 302-3366,(800) 769-4463,Sean Heidstra,sean.heidstra@kinesik.ca,kinesik.ca
+8,Watson Bowman,95 Pineview Drive,Amherst,NY,14228,United States,(845) 344-7095,,,Kevin Buono,kevin.buono@basf.com,wbacorp.com
+9,Niagara Protective Coatings,7071 Oakwood Drive,Niagara Falls,ON,L2E 6S5,Canada,(905) 356-1581,,(905) 354-2077,Dean Karachi,npc@computan.on.ca,niacoat.com
+10,PPG Architectural Coating,8200 Keele street,Concord,ON,L4K 2A5,Canada,(416) 436-3681,,,Alpana Ansilio,alpana.ansilio@ppg.com,dulux.com.sg/en
+11,Sherwin Williams,170 Brunel Road,Mississauga,ON,L4Z 1T5,Canada,(905) 507-0166,(416) 432-6975,,Dean Givelas,dean.givelas@sherwin.com,sherwin-williams.com
+12,Benjamin Moore,101 Paragon Drive,Montvale,NJ,7645,United States,1-(800) 361-5898,,,,,benjaminmoore.com
+13,GMS Artistic Wood Finish Inc,8820 Jane St,Concord,ON,L4K 2M9,Canada,(905) 856-8266,(647) 294-8267,,Emanuele Diodati,emanuele@gmsawf.com,www.gmsawf.com
+14,Willis,1149 Pioneer Road,Burlington,ON,L7M 1KS,Canada,(905) 639-8584,(647) 631-4839,,Ashley Soares,ashleys@4willis.com,4willis.com
+15,Design Spec Rep,15 Boul. Curé-Labelle,Ste-Thérèse,QC,J7E 2X1,Canada,(416) 200-9588,,,Raman Sidhu,rsidhu@designspecrep.com,designspecrep.com
+16,Neo-Metro,15125 Proctor Ave,City of Industry,CA,91746,United States,(800) 591-9050,,,,info@neo-metro.com,neo-metro.com
+17,Electric Mirror LLC,"6101 Associated Blvd, Suite 101",Everett,WA,98203,United States,(425) 776-4946,,,,consultants@electricmirror.com,electricmirror.com
+18,Dyson,,,,,,(877) 397-6622,,,,support@dysoncanada.ca,dysoncanada.ca
+19,Fusion Sales,,,,,,(647) 797-9445,(647) 923-5512,(647) 797-9443,Joseph Johnston,jj@fusionsales.ca,fusionsales.ca

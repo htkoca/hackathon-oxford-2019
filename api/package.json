@@ -1,0 +1,32 @@
+{
+  "name": "oxfordhackapi",
+  "version": "0.1.0",
+  "description": "api",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vamsikt/oxfordhackapi2019.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vamsikt/oxfordhackapi2019/issues"
+  },
+  "homepage": "https://github.com/vamsikt/oxfordhackapi2019#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "csvtojson": "^2.0.10",
+    "express": "^4.17.1",
+    "moment": "^2.24.0",
+    "moment-timezone": "^0.5.26",
+    "ngrok": "^3.2.5",
+    "nodeman": "^1.1.2",
+    "nodemon": "^1.19.2",
+    "pdfmake": "^0.1.59",
+    "request": "^2.88.0"
+  }
+}
